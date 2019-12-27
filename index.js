@@ -113,7 +113,7 @@ const Ook = ({ children, el = 'div', ...props }) => {
     ${mqpacker.pack(styledString).css}
   `
 
-  return <S>{children}</S>
+  return <S {...props}>{children}</S>
 }
 
 export default Ook

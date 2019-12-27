@@ -1,13 +1,13 @@
 {
   "name": "ookook",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "dist.js",
   "scripts": {
     "dev": "run-p watch:*",
     "build": "run-s build:*",
     "build:babel": "babel index.js -o dist.js --minified",
     "build:yalc": "yalc push",
-    "watch:babel": "babel -w index.js -o dist.js",
+    "watch:babel": "babel -w index.js -o dist.js --minified",
     "watch:yalc": "nodemon -x yalc push"
   },
   "babel": {
