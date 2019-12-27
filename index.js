@@ -2,9 +2,7 @@ import React from 'react'
 import knownCssProperties from 'known-css-properties'
 import styled from 'styled-components'
 import mqpacker from 'mqpacker'
-const kebabCase = require('lodash/kebabCase')
-
-const postcss = require('postcss')
+import kebabCase from 'lodash/kebabCase'
 
 // Ook! Ook! 🍌
 
@@ -14,6 +12,7 @@ OokContext.displayName = 'Ook'
 export const OokConfig = ({
   breakpoints = {
     default: '0',
+    // Got these from Chrome DevTools mobile simulator widths
     tablet: '768px',
     desktop: '1440px',
   },
@@ -22,9 +21,7 @@ export const OokConfig = ({
 }) => (
   <OokContext.Provider value={{ breakpoints, cssProperties }}>
     <OokContext.Consumer>
-      {ctx => {
-        return children
-      }}
+      {ctx => children}
     </OokContext.Consumer>
   </OokContext.Provider>
 )
@@ -48,8 +45,6 @@ const Ook = ({ children, el = 'div', ...props }) => {
   const sortedBpNamesBySize = Object.keys(breakpoints).sort(
     (a, b) => parseInt(breakpoints[a], 10) - parseInt(breakpoints[b], 10),
   )
-
-  const jsonifiedProps = props
 
   const styledString = Object.entries(props).reduce((acc, [key, val]) => {
     if (notValidCSSProperties.includes(key)) return acc
@@ -96,8 +91,6 @@ const Ook = ({ children, el = 'div', ...props }) => {
     // Generic css and media queries
     if (cssProperties.includes(keb)) {
       if (typeof val === 'object') {
-        jsonifiedProps[key] = JSON.stringify(val)
-
         // Overwrite global breakpoint rules
         Object.entries(val).forEach(([bp, v]) => {
           if (bp === sortedBpNamesBySize[0]) {
@@ -120,7 +113,7 @@ const Ook = ({ children, el = 'div', ...props }) => {
     ${mqpacker.pack(styledString).css}
   `
 
-  return <S {...jsonifiedProps}>{children}</S>
+  return <S>{children}</S>
 }
 
 export default Ook

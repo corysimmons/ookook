@@ -6,21 +6,25 @@ Ook takes about 15 seconds to master.
 
 ## Installation
 
-`yarn add ookook`
+`npx install-peerdeps ookook`
 
 ## Simple Example
 
 ```js
-import Ook from 'ookook'
+import Ook, { OokConfig } from 'ookook'
 
-export default () => <Ook background="tomato">Eek!</Ook>
+export default () => (
+  <OokConfig>
+    <Ook background="tomato">Eek!</Ook>
+  </OokConfig>
+)
 ```
 
 ## Demo
 
-https://codesandbox.io/s/ook-58nxe
+https://codesandbox.io/s/cra-ook-tnxfi
 
-## Example with Breakpoints
+## Example with Custom Breakpoints
 
 ```js
 import Ook, { OokConfig } from 'ookook'
@@ -29,8 +33,8 @@ const Eek = () => (
   <OokConfig
     breakpoints={{
       default: '0',
-      tablet: '768px',
-      desktop: '1440px',
+      tablet: '600px',
+      desktop: '1200px',
     }}
   >
     <Ook

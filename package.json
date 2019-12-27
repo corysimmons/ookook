@@ -1,6 +1,6 @@
 {
   "name": "ookook",
-  "version": "2.0.0-alpha",
+  "version": "2.0.0",
   "main": "dist.js",
   "scripts": {
     "dev": "run-p watch:*",
@@ -20,13 +20,12 @@
       "@babel/plugin-proposal-optional-chaining"
     ]
   },
-  "dependencies": {
-    "known-css-properties": "^0.14.0",
-    "lodash": "^4.17.13",
-    "mqpacker": "^7.0.0",
-    "postcss": "^7.0.17",
-    "react": "16.8.0",
-    "styled-components": "^5.0.0-beta.6"
+  "peerDependencies": {
+    "known-css-properties": "0.*.*",
+    "lodash": "4.*.*",
+    "mqpacker": "7.*.*",
+    "react": "16.*.*",
+    "styled-components": "5.*.*"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
