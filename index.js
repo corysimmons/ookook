@@ -12,7 +12,11 @@ const OokContext = React.createContext()
 OokContext.displayName = 'Ook'
 
 export const OokConfig = ({
-  breakpoints = {},
+  breakpoints = {
+    default: '0',
+    tablet: '768px',
+    desktop: '1440px',
+  },
   cssProperties = knownCssProperties.all,
   children,
 }) => (
