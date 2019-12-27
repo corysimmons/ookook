@@ -1,6 +1,6 @@
 {
   "name": "ookook",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "dist.js",
   "scripts": {
     "dev": "run-p watch:*",
@@ -21,11 +21,11 @@
     ]
   },
   "peerDependencies": {
-    "known-css-properties": "0.*.*",
-    "lodash": "4.*.*",
-    "mqpacker": "7.*.*",
-    "react": "16.*.*",
-    "styled-components": "5.*.*"
+    "known-css-properties": "0.x.x",
+    "lodash": "3.x.x",
+    "mqpacker": "7.x.x",
+    "react": "16.x.x",
+    "styled-components": "beta"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
